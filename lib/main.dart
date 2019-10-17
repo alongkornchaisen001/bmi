@@ -19,7 +19,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
     int _genderselect = 0;
     double BMR;
-    String _bmr;
+    String _bmr = '-???-';
 
     TextEditingController _ctrlWeight = TextEditingController();
     TextEditingController _ctrlHeight = TextEditingController();
@@ -281,6 +281,7 @@ class _HomePageState extends State<HomePage> {
                                    //F->C
                                    BMR = 655 + (19.6 * weight) + (1.8 * height) - (4.7 * age);
                                  }
+                                 _bmr = '${BMR.toString()}';
                                }
                              });
                           },
@@ -309,7 +310,7 @@ class _HomePageState extends State<HomePage> {
                               _ctrlWeight.clear();
                               _ctrlHeight.clear();
                               _ctrlage.clear();
-                              BMR = 0.0;
+                              _bmr = 0.0;
                             });
                           },
                           child: Text(
@@ -350,7 +351,7 @@ class _HomePageState extends State<HomePage> {
                     height: 10.0,
                   ),
                   Text(
-                   _bmr = '${BMR.toString()}',
+                   _bmr,
                     style: TextStyle(
                       fontSize:  20.0,
                     ),
